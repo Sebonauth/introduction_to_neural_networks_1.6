@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Journey Ahead</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            font-size: 150%;
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            display: none; /* Initially hidden */
+            opacity: 0; /* Initially invisible for fade-in effect */
+            transition: opacity 0.5s ease-in; /* Fade-in effect */
+        }
+        p {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        .image-placeholder, .continue-button, .vocab-section, .why-it-matters, .faq-section {
+            text-align: left;
+            margin: 0 20px;
+        }
+        .image-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .vocab-section {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .vocab-section h3 {
+            color: #1e90ff;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .vocab-term {
+            font-weight: bold;
+            color: #1e90ff;
+        }
+
+        /* Magenta Style for Why It Matters Section */
+        .why-it-matters {
+            background-color: #ffe6f0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .why-it-matters h3 {
+            color: #d81b60;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        /* Yellow Style for FAQ Section */
+        .faq-section {
+            background-color: #fffbea; /* Light yellow background */
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .faq-section h3 {
+            color: #ffcc00; /* Bright yellow heading */
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .faq-section p {
+            color: #444;
+            margin-top: 10px;
+        }
+
+        /* Continue Button */
+        .continue-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            color: #ffffff;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Introduction Section -->
+    <section id="section1">
+        <p>Understanding the origins of neural networks equips us with insights into their capabilities and limitations.</p>
+        <div class="continue-button" onclick="showNextSection(2)">Continue</div>
+    </section>
+
+    <section id="section2">
+        <p>As we progress through this course, we'll delve deeper into how neural networks function, how they're trained, and how they're applied across various domains.</p>
+        <div class="image-placeholder">
+            <img src="path-to-futuristic-networks.jpg" alt="Futuristic representation of neural networks connecting fields like healthcare, finance, and robotics">
+        </div>
+        <div class="continue-button" onclick="showNextSection(3)">Continue</div>
+    </section>
+
+    <section id="section3">
+        <div class="why-it-matters">
+            <h3>Why It Matters</h3>
+            <p>Appreciating the history of neural networks helps us innovate responsibly and build upon the knowledge of pioneers who paved the way.</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(4)">Continue</div>
+    </section>
+
+    <section id="section4">
+        <h3>Review and Reflect</h3>
+        <div class="image-placeholder">
+            <img src="path-to-collage-evolution.jpg" alt="Collage of the evolution of neural networks from perceptrons to deep learning models">
+        </div>
+        <p>Let's recap what we've learned in this lesson:</p>
+        <ul>
+            <li><strong>Early Developments:</strong> McCulloch and Pitts modeled neurons using logic, setting the stage for neural networks.</li>
+            <li><strong>Pioneers' Contributions:</strong> Rosenblatt developed the perceptron; Minsky and Papert identified its limitations; Rumelhart, Hinton, and Williams advanced learning with backpropagation.</li>
+            <li><strong>Rise, Fall, and Resurgence:</strong> Interest in neural networks fluctuated but surged with new algorithms and increased computational power.</li>
+            <li><strong>Impact on Architectures:</strong> Challenges led to the creation of multilayer networks and specialized architectures for different types of data.</li>
+        </ul>
+        <div class="continue-button" onclick="showNextSection(5)">Continue</div>
+    </section>
+
+    <section id="section5">
+        <div class="faq-section">
+            <h3>Frequently Asked!</h3>
+            <h4>Q: How did backpropagation address the limitations of earlier neural network models?</h4>
+            <p><strong>A:</strong> Backpropagation provided a method for efficiently computing the gradient of the loss function with respect to all weights in a multilayer network. This allowed networks to adjust weights in hidden layers, enabling them to learn complex, nonlinear relationships that single-layer networks like the perceptron couldn't handle.</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(6)">Continue</div>
+    </section>
+
+    <section id="section6">
+        <p>In our next lesson, we'll explore the biological inspiration behind neural networks by diving into the structure and function of neurons and synapses in the human brain.</p>
+    </section>
+
+    <script>
+        // Show the first section initially
+        document.getElementById("section1").style.display = "block";
+        document.getElementById("section1").style.opacity = "1"; // Make the first section visible
+
+        // Function to show the next section with fade-in and then scroll to it
+        function showNextSection(nextSectionId) {
+            const currentButton = event.target;
+            const nextSection = document.getElementById("section" + nextSectionId);
+            
+            // Hide the clicked button
+            currentButton.style.display = "none";
+            
+            // Show the next section with a fade-in effect
+            nextSection.style.display = "block";
+            setTimeout(() => {
+                nextSection.style.opacity = "1"; // Fade in the section
+            }, 10);
+
+            // Scroll to the new section after it fades in
+            setTimeout(() => {
+                nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 500); // Delay scrolling until fade-in completes
+        }
+    </script>
+
+</body>
+</html>
+
